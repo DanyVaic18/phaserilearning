@@ -9,9 +9,12 @@ class SceneWorld extends Phaser.Scene {
 
   preload() {
     this.load.image("world", "./resource/backgrounds/world_freepick.jpg");
+    this.load.image("perrito", "./resource/argenperrito.png")
+    this.load.image("casita-perrito", "./resource/casita.png")
   }
 
   create() {
+    this.scene.bringToTop("SceneWorld")
 
     const widthWorld = this.game.config.width
     const heightWorld = this.game.config.height
@@ -37,6 +40,44 @@ class SceneWorld extends Phaser.Scene {
     const imgWorld = this.add.image(90, 48, "world");
     imgWorld.setOrigin(0, 0);
 
+    this.casitaChangeScene = this.physics.add.image(widthWorld+20, heightWorld - 100, "casita-perrito");
+    // this.casitaChangeScene.setAlpha(0)
+    this.casitaChangeScene.setScale(0.4)
+    this.casitaChangeScene.setOrigin(0, 0)
+    this.casitaChangeScene.setCollideWorldBounds(true)
+    this.casitaChangeScene.setImmovable(true)
+
+    this.perrito = this.physics.add.image(widthWorld/2, heightWorld, "perrito")
+    this.perrito.setScale(0.4)
+    this.perrito.setCollideWorldBounds(true)
+    this.perrito.setBounceX(0.2)
+    
+    this.currentScene = "SceneWorld"
+
+    this.physics.add.collider(this.perrito, this.casitaChangeScene, () => {
+      this.perrito.setX(widthWorld/2)
+      this.perrito.setVelocityX(0)
+      const collisionChangeScene = (name="SceneWorld") => {
+        this.scene.bringToTop(name)
+        this.currentScene = name
+      }
+
+      if(this.currentScene === "SceneWorld"){
+        collisionChangeScene("SceneMoon")
+      }else if(this.currentScene === "SceneMoon"){
+        collisionChangeScene("SceneSun")
+      }else if(this.currentScene === "SceneSun"){
+        collisionChangeScene()
+      }
+      
+    })
+
+    this.cursors = this.input.keyboard.createCursorKeys();
+
+    this.input.keyboard.on("keydown-SPACE", (ev) => {
+      this.perrito.setVelocityY(this.perrito.body.height * -2);
+  })
+
     // Scene arriba del todo
     
 
@@ -57,7 +98,20 @@ class SceneWorld extends Phaser.Scene {
   }
 
   update() {
+    if (this.cursors.left.isDown) {
+      if((12 * 20)* - 1 < this.perrito.body.velocity.x){
+        this.perrito.setVelocityX(this.perrito.body.velocity.x - 12);
+      }
+  
+      this.perrito.setFlipX(true);
+    } else if (this.cursors.right.isDown) {
       
+      if(this.perrito.body.velocity.x < (12 * 20)){
+        this.perrito.setVelocityX(this.perrito.body.velocity.x + 12);
+      }
+  
+      this.perrito.setFlipX(false);
+    }
   }
 }
 
