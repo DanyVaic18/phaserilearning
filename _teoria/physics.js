@@ -31,10 +31,15 @@ function preload() {
 function create() {
   
   const perrito = this.physics.add.image(0, game.config.height-256, "perrito")
+  // setCollideWorldBounds(top, right, botom, left)  || (true || all) Evita que nuestros obejetos se salgan de la pantalla. 
   perrito.setCollideWorldBounds(true)
+  // setOrigin(x, y) permite que nuestro objeto se centre en la posicion (0, 0).
   perrito.setOrigin(0, 0)
+  // setBounce(x, y) permite que nuestro objeto rebote
   perrito.setBounce(0.2)
+  // setAcceleration(x, y) permite que nuestro objeto se mueva y acelere poco a poco su velocidad.
   perrito.setAcceleration(100, 0)
+  // setVelocity(x, y) permite que nuestro objeto se mueva en la direccion que le indiquemos jugando con los negativos y positivos.
   perrito.setVelocity(500, 0)
 }
 
