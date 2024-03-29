@@ -1,4 +1,6 @@
 // import Phaser from "phaser";
+import SceneMoon from "./scenes/moon";
+import SceneSun from "./scenes/sun";
 import SceneWorld from "./scenes/world";
 
 const config = {
@@ -6,7 +8,7 @@ const config = {
   height: 720,
   parent: "app",
   type: Phaser.CANVAS,
-  scene: [SceneWorld],
+  scene: [SceneWorld, SceneMoon, SceneSun],
 
   physics: {
     default: "arcade",

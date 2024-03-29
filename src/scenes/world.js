@@ -16,8 +16,6 @@ class SceneWorld extends Phaser.Scene {
     const widthWorld = this.game.config.width
     const heightWorld = this.game.config.height
 
-
-
     const graphics = this.add.graphics()
     graphics.fillStyle(0x1d2e84, 1)
     //Fonde de la Scena
