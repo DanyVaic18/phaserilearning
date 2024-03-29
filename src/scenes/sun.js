@@ -1,6 +1,6 @@
 class SceneSun extends Phaser.Scene {
   constructor() {
-    super({ key: "Scene", active: true });
+    super({ key: "SceneSun", active: true });
   }
 
   preload() {
@@ -18,7 +18,13 @@ class SceneSun extends Phaser.Scene {
     graphics.fillRect(2, 166, 80, 80);
 
 
-    this.add.text(10, 190, "SOL", { font:"32px sans-serif", color:"#293425" } )
+    const titleTabText = this.add.text(10, 190, "SOL", { font:"32px sans-serif", color:"#293425" } )
+    titleTabText.setInteractive()
+
+    titleTabText.on("pointerdown",() => {
+        this.scene.bringToTop("SceneSun")
+      })
+
     this.add.text(90, 10, "SOLECITO", { font:"32px sans-serif", color:"#293425" } )
 
     const imgSun = this.add.image(90, 56, "sun")

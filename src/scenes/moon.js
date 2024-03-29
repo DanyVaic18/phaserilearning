@@ -22,7 +22,13 @@ class SceneMoon extends Phaser.Scene {
       graphics.fillRect(2, 84, 80, 80)
   
   
-      this.add.text(14, 112, "MO", { font: "32px sans-serif", fill: "#212121" });
+      const titleTabText = this.add.text(14, 112, "MO", { font: "32px sans-serif", fill: "#212121" });
+      titleTabText.setInteractive()
+
+      titleTabText.on("pointerdown",() => {
+        this.scene.bringToTop("SceneMoon")
+      })
+
       this.add.text(90, 10, "Luna", { font: "32px sans-serif", fill: "#212121" });
   
       const imgMoon = this.add.image(90, 48, "moon");

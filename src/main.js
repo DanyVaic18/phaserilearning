@@ -3,6 +3,7 @@ import SceneMoon from "./scenes/moon";
 import SceneSun from "./scenes/sun";
 import SceneWorld from "./scenes/world";
 
+
 const config = {
   width: 1280,
   height: 720,
