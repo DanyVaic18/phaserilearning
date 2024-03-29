@@ -2,15 +2,15 @@
 import SceneMoon from "./scenes/moon";
 import SceneSun from "./scenes/sun";
 import SceneWorld from "./scenes/world";
-
+import SceneBootLoader from "./scenes/bootloader";
 
 const config = {
-  width: 1280,
-  height: 720,
+  width: 1280/1.5,
+  height: 720/1.5,
   parent: "app",
   type: Phaser.CANVAS,
-  scene: [SceneWorld, SceneMoon, SceneSun],
-
+  // scene: [SceneWorld, SceneMoon, SceneSun],
+  scene:[SceneBootLoader],
   physics: {
     default: "arcade",
     arcade: {
