@@ -2,7 +2,10 @@
 import SceneMoon from "./scenes/moon";
 import SceneSun from "./scenes/sun";
 import SceneWorld from "./scenes/world";
+//Escena para cargar todos nuestros Archivos
 import SceneBootLoader from "./scenes/bootloader";
+//Escena del juego
+import ScenePong from "./scenes/pong";
 
 const config = {
   width: 1280/1.5,
@@ -10,7 +13,7 @@ const config = {
   parent: "app",
   type: Phaser.CANVAS,
   // scene: [SceneWorld, SceneMoon, SceneSun],
-  scene:[SceneBootLoader],
+  scene:[SceneBootLoader, ScenePong],
   physics: {
     default: "arcade",
     arcade: {
