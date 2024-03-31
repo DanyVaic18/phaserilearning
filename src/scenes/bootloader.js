@@ -6,7 +6,10 @@ class SceneBootLoader extends Phaser.Scene {
     }
 
     preload(){
-
+        this.load.image("ball", "./resource/pong-assets/ball.png");
+        this.load.image("ball", "./resource/pong-assets/left_pallete.png");
+        this.load.image("ball", "./resource/pong-assets/right_pallete.png");
+        this.load.image("ball", "./resource/pong-assets/separator.png");
     }
 
     create(){
