@@ -4,6 +4,8 @@ class Pallets extends Phaser.GameObjects.Sprite {
     scene.add.existing(this);
     scene.physics.world.enable(this);
     this.body.setImmovable(true)
+    this.body.setCollideWorldBounds(true)
+    this.setScale(1, 2)
   }
 }
 
