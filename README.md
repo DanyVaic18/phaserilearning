@@ -1,3 +1,13 @@
+---
+description: Description of the organization.
+---
+
 # README
 
-## Editando Todo esto desde gitBook
+### Techs
+
+* Jira
+* Gtihub
+* Gitbook
+* Discord
+
